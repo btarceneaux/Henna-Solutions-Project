@@ -1,0 +1,39 @@
+<nav>
+    <ul>
+        <li><a routerLink="/manageClients">Create Clients</a></li>
+        <li><a routerLink="/manageClientMeetings">Schedule A Meeting</a></li>
+        <li><a routerLink="/">Log Out</a></li>
+    </ul>
+</nav>
+<br>
+<h2>CREATE CLIENT</h2>
+<div id="createClient">
+    <form [formGroup]="createUser" (ngSubmit)="createNewUser()">
+        First Name :
+        <input type="text" class="tb" ng-required formControlName="firstName"> <br><br>
+        Last Name :
+        <input type="text" class="tb" ng-required formControlName="lastName"> <br><br>
+        Username :
+        <input type="text" class="tb" ng-required placeholder="email address" formControlName="email"> <br><br>
+        password :
+        <input type="password" class="tb" ng-required formControlName="password"> <br><br>
+        <button type="submit" id="btn">Create</button>
+      </form>
+</div>
+<br>
+<br>
+<h2>Clients</h2>
+<div id="displayClients">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+        </tr>
+        <tr *ngFor="let user of myUserArray">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </table>
+</div>
