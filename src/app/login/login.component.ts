@@ -19,8 +19,6 @@ export class LoginComponent
 
   }
 
-  myUser: User = new User('Administrator', 'Administrator', 'admin@example.com', 'password');
-
   loginForm = new FormGroup
   (
     {

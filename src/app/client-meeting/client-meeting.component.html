@@ -6,3 +6,43 @@
     </ul>
 </nav>
 <br>
+<h2>Schedule A Meeting</h2>
+<div id="createMeeting">
+    <form [formGroup]="createAppointment" (ngSubmit)="createNewAppointment()">
+        <table>
+            <tr>
+                <th>Select User</th>
+                <th>Meeting Date</th>
+                <th>Meeting Time</th>
+                <th>Submit</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="userSelect" id="userSelect" ng-required formControlName="user">
+                        <option *ngFor="let user of myUserArray"
+                            value="{{user.firstName}} {{user.lastName}}">{{user.firstName}} {{user.lastName}}</option>
+                    </select></td>
+                <td><input type="date" ng-required formControlName="meetingDate" useValueAsDate></td>
+                <td><input type="time" ng-required formControlName="meetingTime"></td>
+                <td><button type="submit" id="btn">Schedule</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<br>
+<br>
+<h2>Meeting Schedules</h2>
+<div id="displayMeetings">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        <tr *ngFor="let meeting of myMeetingArray">
+            <td>{{meeting.email}}</td>
+            <td>{{meeting.date}}</td>
+            <td>{{meeting.time}}</td>
+        </tr>
+    </table>
+</div>
